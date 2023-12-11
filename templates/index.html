@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Video Search</title>
+</head>
+<body>
+    <h1>YouTube Video Search</h1>
+    <form method="POST">
+        <label for="keyword">Masukkan kata kunci video:</label>
+        <input type="text" name="keyword" required>
+        <button type="submit">Cari</button>
+    </form>
+
+    <h2>Hasil Pencarian:</h2>
+<ul>
+    {% for video in videos %}
+        <li>
+            <h3>{{ video['title'] }}</h3>
+            <p>{{ video['description'] }}</p>
+            <iframe width="320" height="240" src="https://www.youtube.com/embed/{{ video['video_id'] }}" frameborder="0" allowfullscreen></iframe>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
